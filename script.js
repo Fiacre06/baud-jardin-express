@@ -1,4 +1,5 @@
 const plants = [
+
   {
     nom: "Tomate",
     nom_scientifique: "Solanum lycopersicum",
@@ -25,7 +26,7 @@ const plants = [
   },
   {
     nom: "Piment",
-    nom_scientifique: "Capsicum annuum",
+    nom_scientifique: "Capsicum spp",
     categorie: "Fruit légume",
     description: "Plante vivace en climat chaud, cultivée pour ses fruits épicés.",
     conseils: "Chaleur, soleil, arrosage modéré, éviter l’excès d’azote.",
@@ -139,6 +140,14 @@ const plants = [
     itineraire: "Semis → repiquage → buttage → récolte après 5-6 mois."
   },
   {
+    nom: "Patate douce",
+    nom_scientifique: "Ipomoea batatas",
+    categorie: "Racine",
+    description: "Tubercule sucré apprécié en tropique.",
+    conseils: "Chaleur, sol léger, bouturage.",
+    itineraire: "Plantation → binage → récolte après 4-5 mois."
+  },
+  {
     nom: "Igname",
     nom_scientifique: "Dioscorea spp.",
     categorie: "Racine",
@@ -147,12 +156,12 @@ const plants = [
     itineraire: "Plantation → paillage → récolte après 6-8 mois."
   },
   {
-    nom: "Taro",
-    nom_scientifique: "Colocasia esculenta",
-    categorie: "Plante tubéreuse",
-    description: "Plante vivace cultivée pour ses tubercules riches en amidon et ses feuilles comestibles.",
-    conseils: "Sol bien drainé et riche en matière organique,protéger-le des fortes gelées.",
-    itineraire: "Plantation → paillage → récolte après 7-12 mois."
+    nom: "Chou chinois",
+    nom_scientifique: "Brassica rapa subsp. pekinensis",
+    categorie: "Feuille",
+    description: "Légume asiatique tendre.",
+    conseils: "Semis direct ou pépinière, arrosage constant.",
+    itineraire: "Semis → repiquage → récolte rapide (40-60 jours)."
   },
   {
     nom: "Gombo",
@@ -259,12 +268,12 @@ const plants = [
     itineraire: "Semis en godet ou direct. Récolte après 3 mois."
   },
   {
-    nom: "Chou chinois",
-    nom_scientifique: "Brassica rapa subsp. pekinensis",
-    categorie: "Feuilles",
-    description: "Chou à feuilles tendres et goût doux.",
-    conseils: "Arrosage fréquent et sol fertile recommandés.",
-    itineraire: "Semis direct ou pépinière. Récolte après 2 mois."
+    nom: "Taro",
+    nom_scientifique: "Colocasia esculenta",
+    categorie: "Tubercules",
+    description: "Plante vivrière cultivée pour ses gros tubercules riches en amidon et ses feuilles comestibles.",
+    conseils: "Sol humide,riche et bien drainé.Climat chaud et humide.",
+    itineraire: "Plantation, arrosage,entrtien,récolte après 6 à 9 mois."
   },
   {
     nom: "Pois chiche",
@@ -307,12 +316,12 @@ const plants = [
     itineraire: "Bouturage ou plants, récolte après 4-5 mois."
   },
   {
-    nom: "Ail",
-    nom_scientifique: "Allium sativum",
-    categorie: "Bulbes",
-    description: "Plante herbacée cultivée pour ses gousses aromatiques,utilisées en cuisine pour leurs propriétés culinaires et médécinales.",
-    conseils: "Sol bien drainé et ensoleillé.",
-    itineraire: "Semis direct, récolte après 8-10 mois."
+    nom: "Cresson alénois",
+    nom_scientifique: "Lepidium sativum",
+    categorie: "Feuilles",
+    description: "Feuille piquante souvent utilisée en salade.",
+    conseils: "Croissance rapide, peu exigeant.",
+    itineraire: "Semis direct, récolte après 3-4 semaines."
   },
   {
     nom: "Maïs doux",
@@ -483,12 +492,12 @@ const plants = [
   itineraire: "Semis direct, récolte 4 à 5 mois après semis."
 },
 {
-  nom: "Cresson alénois",
-  nom_scientifique: "Lepidium sativum",
-  categorie: "Feuille",
-  description: "Petite plante à croissance rapide, goût piquant.",
-  conseils: "Culture facile, même en pot. Arrosage fréquent.",
-  itineraire: "Semis direct, récolte en 2 à 3 semaines."
+  nom: "Ail",
+  nom_scientifique: "Allium sativum",
+  categorie: "Bulbes",
+  description: "Plante herbacée cultivée pour ses gousses aromatiques,largement utilisées en cusine pour leurs propriétés culinaires et médécinales.",
+  conseils: "Sol léger,bien drainé,ensoleillée et cultivé en automne ou au printemps selon le climat.",
+  itineraire: "Plantation,arrosage,entretien,récolte 8 à 10 mois après plantation."
 },
 {
   nom: "Navet blanc",
@@ -587,6 +596,158 @@ const plants = [
   itineraire: "Semis en pot ou plein champ, récolte dès 30 jours après semis."
 },
 {
+    nom: "Moringa",
+    nom_scientifique: "Moringa oleifera",
+    categorie: "Vivrière",
+    description: "Arbre aux feuilles très nutritives, utilisé comme légume ou complément alimentaire.",
+    conseils: "Planter en plein soleil, sol bien drainé. Arroser modérément.",
+    itineraire: "Semis direct en poquet ou en pépinière. Repiquage après 3-4 semaines. Récolte des feuilles dès 1 mois après plantation."
+},
+{
+    nom: "Échalote",
+    nom_scientifique: "Allium ascalonicum",
+    categorie: "Potagère",
+    description: "Bulbe proche de l’oignon, utilisé en cuisine pour son goût fin.",
+    conseils: "Planter en sol léger et fertile, en plein soleil. Éviter l’excès d’humidité.",
+    itineraire: "Plantation de bulbilles entre novembre et janvier. Récolte 4 à 5 mois plus tard, quand les feuilles jaunissent."
+},
+{
+    nom: "Potiron",
+    nom_scientifique: "Cucurbita maxima",
+    categorie: "Potagère",
+    description: "Plante rampante produisant de gros fruits comestibles riches en bêta-carotène.",
+    conseils: "Exige chaleur et compost. Arroser au pied sans mouiller les feuilles.",
+    itineraire: "Semis en poquet en saison chaude. Récolte 3 à 4 mois après semis, à maturité complète."
+},
+{
+    nom: "Cerfeuil",
+    nom_scientifique: "Anthriscus cerefolium",
+    categorie: "Aromatique",
+    description: "Plante herbacée aromatique utilisée comme condiment.",
+    conseils: "Sol frais et mi-ombragé. Arroser régulièrement.",
+    itineraire: "Semis direct en lignes. Récolte des feuilles 6 à 8 semaines après semis."
+},
+{
+    nom: "Kakao",
+    nom_scientifique: "Theobroma cacao",
+    categorie: "Vivrière",
+    description: "Arbre tropical dont les fèves servent à fabriquer le chocolat.",
+    conseils: "Sol riche, ombragé au départ. Besoin de chaleur et d’humidité.",
+    itineraire: "Repiquage de plants issus de pépinière. Entretien régulier. Première récolte 3 à 5 ans après plantation."
+},
+{
+    nom: "Chou de Bruxelles",
+    nom_scientifique: "Brassica oleracea var. gemmifera",
+    categorie: "Potagère",
+    description: "Légume formant de petites pommes le long d’une tige.",
+    conseils: "Climat frais. Sol riche et bien drainé.",
+    itineraire: "Semis en pépinière, repiquage après 5-6 semaines. Récolte 3 à 4 mois plus tard."
+},
+{
+    nom: "Câpre",
+    nom_scientifique: "Capparis spinosa",
+    categorie: "Aromatique",
+    description: "Plante méditerranéenne dont les boutons floraux sont consommés.",
+    conseils: "Sol sec et rocailleux. Exposition ensoleillée.",
+    itineraire: "Multiplication par bouturage. Récolte des boutons avant floraison."
+},
+{
+    nom: "Salicorne",
+    nom_scientifique: "Salicornia europaea",
+    categorie: "Aromatique",
+    description: "Plante halophile comestible, croquante et salée, appréciée en salade.",
+    conseils: "Sol salin ou bord de mer. Bonne humidité.",
+    itineraire: "Semis ou repiquage. Récolte jeune avant lignification des tiges."
+},
+{
+    nom: "Quinoa",
+    nom_scientifique: "Chenopodium quinoa",
+    categorie: "Céréalière",
+    description: "Pseudo-céréale riche en protéines, cultivée pour ses graines.",
+    conseils: "Sol bien drainé, peu fertile. Tolère la sécheresse.",
+    itineraire: "Semis direct. Récolte 3 à 4 mois après semis, quand les graines sont mûres. Battage et séchage nécessaires."
+  },
+  {
+    nom: "Jicama",
+    nom_scientifique: "Pachyrhizus erosus",
+    categorie: "Vivrière",
+    description: "Plante légumineuse cultivée pour ses racines comestibles croquantes et sucrées.",
+    conseils: "Climat chaud, sol léger bien drainé. Plein soleil.",
+    itineraire: "Semis direct après les dernières pluies. Récolte 5 à 9 mois après semis, lorsque les racines sont bien formées."
+  },
+  {
+    nom: "Lentilles",
+    nom_scientifique: "Lens culinaris",
+    categorie: "Céréalière",
+    description: "Plante légumineuse cultivée pour ses graines riches en protéines.",
+    conseils: "Sol léger, pauvre et bien drainé. Exposition ensoleillée.",
+    itineraire: "Semis direct. Récolte 3 à 4 mois après semis, lorsque les gousses sont sèches."
+  },
+  {
+    nom: "Sésame",
+    nom_scientifique: "Sesamum indicum",
+    categorie: "Oléagineuse",
+    description: "Plante cultivée pour ses graines riches en huile et en nutriments.",
+    conseils: "Sol sablonneux, bien drainé, en plein soleil.",
+    itineraire: "Semis direct en ligne. Récolte environ 90 à 120 jours après semis, quand les capsules sont sèches."
+  },
+  {
+    nom: "Artichaut",
+    nom_scientifique: "Cynara scolymus",
+    categorie: "Potagère",
+    description: "Plante vivace cultivée pour ses fleurs comestibles non épanouies.",
+    conseils: "Climat tempéré, sol profond et fertile.",
+    itineraire: "Plantation par œilletons ou semis. Récolte 8 à 12 mois après. Tailler après floraison."
+  },
+  {
+    nom: "Fève de soja",
+    nom_scientifique: "Glycine max",
+    categorie: "Légumineuse",
+    description: "Plante annuelle cultivée pour ses graines riches en protéines et en huile.",
+    conseils: "Sol meuble, chaud et bien drainé. Plein soleil.",
+    itineraire: "Semis direct. Récolte 3 à 5 mois après, selon l’usage (vert ou sec)."
+  },
+  {
+    nom: "Pomme grenade",
+    nom_scientifique: "Punica granatum",
+    categorie: "Fruitière",
+    description: "Arbuste fruitier produisant des fruits juteux riches en antioxydants.",
+    conseils: "Sol bien drainé, supporte la sécheresse. Exposition ensoleillée.",
+    itineraire: "Multiplication par bouture ou greffe. Récolte 5 à 7 mois après floraison."
+  },
+  {
+    nom: "Tige de maïs",
+    nom_scientifique: "Zea mays",
+    categorie: "Céréalière",
+    description: "Plante herbacée cultivée pour ses grains. Les tiges peuvent être utilisées comme fourrage.",
+    conseils: "Sol riche, arrosage régulier. Besoin de chaleur.",
+    itineraire: "Semis direct en lignes. Récolte des épis à maturité, tiges récoltées pour fourrage ou paillage."
+  },
+  {
+    nom: "Sarrasin",
+    nom_scientifique: "Fagopyrum esculentum",
+    categorie: "Céréalière",
+    description: "Pseudo-céréale cultivée pour ses graines sans gluten.",
+    conseils: "Sol pauvre, léger. Climat tempéré à chaud.",
+    itineraire: "Semis direct. Récolte 70 à 90 jours après, avant que les graines ne tombent."
+  },
+  {
+    nom: "Pêche de vigne",
+    nom_scientifique: "Prunus persica var. platycarpa",
+    categorie: "Fruitière",
+    description: "Variété ancienne de pêche à chair rouge, très parfumée.",
+    conseils: "Sol profond, fertile et bien drainé. Climat tempéré.",
+    itineraire: "Greffage sur porte-greffe. Récolte en fin d’été, 2 à 3 ans après plantation."
+  },
+  {
+    nom: "Arugula (Roquette)",
+    nom_scientifique: "Eruca vesicaria",
+    categorie: "Aromatique",
+    description: "Plante feuillue au goût poivré, utilisée en salade.",
+    conseils: "Sol frais et bien drainé. Semer par temps frais.",
+    itineraire: "Semis en ligne ou à la volée. Récolte 3 à 5 semaines après semis, avant la montée en graine."
+ },
+ {
   nom: "Citrouilles",
   nom_scientifique: "Cucurbita maxima",
   categorie: "Fruit légume",
@@ -617,6 +778,18 @@ function afficherPlantes() {
 
     plantList.appendChild(card);
   });
+   
+ document.getElementById("sortSelect").addEventListener("change", function () {
+  const sortType = this.value;
+
+  if (sortType === "az") {
+    plants.sort((a, b) => a.nom.localeCompare(b.nom));
+  } else if (sortType === "za") {
+    plants.sort((a, b) => b.nom.localeCompare(a.nom));
+  }
+
+  afficherPlantes(plants);
+  });
 }
 
 // Recherche
@@ -635,6 +808,61 @@ function filtrerPlantes() {
     }
   });
 }
+   
+
+const menuButton = document.getElementById('menuButton');
+const dropdownMenu = document.getElementById('dropdownMenu');
+const modal = document.getElementById('modal');
+const modalText = document.getElementById('modalText');
+
+menuButton.onclick = () => {
+  dropdownMenu.style.display = dropdownMenu.style.display === 'block' ? 'none' : 'block';
+};
+
+window.onclick = function(event) {
+  if (!event.target.matches('#menuButton')) {
+    dropdownMenu.style.display = 'none';
+  }
+};
+
+function sortPlants(order) {
+  if (order === 'asc') {
+    plants.sort((a, b) => a.nom.localeCompare(b.nom));
+  } else if (order === 'desc') {
+    plants.sort((a, b) => b.nom.localeCompare(a.nom));
+  }
+  afficherPlantes(plants); // Recharge la liste triée
+};
+
+
+function showAbout() {
+  modalText.innerHTML = `<h2>À propos</h2>
+    <p>JardinExpress est une application de planification de jardin tropical créée par Baudler-Fiacre Gbenou-Fanou, étudiant en horticulture.</p>`;
+  modal.style.display = 'block';
+}
+
+function closeModal() {
+  modal.style.display = 'none';
+}
+
+document.addEventListener('DOMContentLoaded', function () {
+  document.getElementById('sort-select').addEventListener('change', function () {
+    const sortOrder = this.value;
+    if (sortOrder === 'none') return;
+
+    const container = document.getElementById('plants-container');
+    const items = Array.from(container.querySelectorAll('.plant-card'));
+
+    items.sort((a, b) => {
+      const nameA = a.querySelector('h3').textContent.toUpperCase();
+      const nameB = b.querySelector('h3').textContent.toUpperCase();
+      return sortOrder === 'asc' ? nameA.localeCompare(nameB) : nameB.localeCompare(nameA);
+    });
+
+    container.innerHTML = '';
+    items.forEach(item => container.appendChild(item));
+  });
+});
 
 // Initialisation
 afficherPlantes();

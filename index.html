@@ -2,8 +2,13 @@
 <html lang="fr">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- SEO pour Google -->
+  <meta name="description" content="JardinExpress - Planificateur de jardin potager tropical. Organisez vos cultures selon le climat, la saison et l’espace disponible, avec plus de 80 plantes vivrières.">
+  <meta name="keywords" content="jardin potager, jardin tropical, horticulture, jardinExpress, planificateur jardin, plantes vivrières, potager, Bénin, agriculture urbaine, aménagement espace vert">
+  <meta name="author" content="Baudler-Fiacre Gbenou-Fanou">
+  <title>JardinExpress - BaudlerScott</title>
   <meta name="google-site-verification" content="WND7D28FLG9TlsTk7JQszbU9E9wZyMzGOLATNGCNiOQ" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>JardinExpress - Plantes Potagères</title>
   <link rel="stylesheet" href="styles.css">
 </head>
@@ -17,9 +22,33 @@
   <main>
     <!-- Barre de recherche -->
     <input type="text" id="searchInput" placeholder="Rechercher une plante..." oninput="filtrerPlantes()">
+    
+  
+<select id="sort-select">
+  <option value="default">Par défaut</option>
+  <option value="asc">A → Z</option>
+  <option value="desc">Z → A</option>
+</select>
 
     <!-- Liste des plantes -->
-    <div id="plant-list" class="plant-list"></div>
+    <div id="plant-list"></div>
+
+    <!-- Menu Trois Points -->
+    <div class="menu-container">
+      <button id="menuButton" class="menu-button">⋮</button>
+    <div id="dropdownMenu" class="dropdown-content">
+    <a href="maladies.html">Maladies des plantes</a>
+    <a href="#" onclick="showAbout()">À propos</a>
+  </div>
+</div>
+
+    <!-- Boîte Modale -->
+    <div id="modal" class="modal">
+    <div class="modal-content" id="modalContent">
+    <span class="close" onclick="closeModal()">&times;</span>
+    <div id="modalText"></div>
+  </div>
+</div>
   </main>
 
   <footer>

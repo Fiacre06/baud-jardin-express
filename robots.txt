@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://fiacre06.github.io/baud-jardin-express/sitemap.xml

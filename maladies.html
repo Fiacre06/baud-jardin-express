@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Maladies des Plantes - JardinExpress</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #e2ffe2;
+      margin: 0;
+      padding: 1rem;
+    }
+
+    .back-button {
+      position: fixed;
+      top: 10px;
+      left: 10px;
+      font-size: 30px;
+      text-decoration: none;
+      color: white;
+      background: green;
+      border-radius: 50%;
+      width: 40px;
+      height: 40px;
+      text-align: center;
+      line-height: 40px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.3);
+      z-index: 1000;
+    }
+
+    h1 {
+      text-align: center;
+      color: #036803;
+    }
+
+    #searchInput, #triSelect {
+      width: 100%;
+      padding: 10px;
+      margin: 10px 0;
+      font-size: 18px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+    }
+
+    .maladie {
+      background: white;
+      margin: 1rem 0;
+      padding: 1rem;
+      border-left: 10px solid #4caf50;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+
+    .maladie h2 {
+      margin: 0 0 5px;
+      color: #2c6e2c;
+    }
+
+    .maladie p {
+      margin: 5px 0;
+    }
+
+    .section-title {
+      font-weight: bold;
+      margin-top: 10px;
+    }
+  </style>
+</head>
+<body>
+  <a href="index.html" class="back-button">&#8592;</a>
+  <h1>Maladies des plantes potagères</h1>
+
+  <input type="text" id="searchInput" placeholder="Rechercher une maladie...">
+  <select id="triSelect">
+    <option value="default">Trier par...</option>
+    <option value="asc">Nom A → Z</option>
+    <option value="desc">Nom Z → A</option>
+  </select>
+
+  <div id="maladie-list"></div>
+
+  <script>
+    const maladies = [
+      {
+        nom: "Mildiou de la tomate",
+        nom_scientifique: "Phytophthora infestans",
+        description: "Maladie fongique provoquant des taches brunes sur les feuilles, les tiges et les fruits.",
+        cultures_attaquées: "Tomate, pomme de terre",
+        lutte_biologique: "Utiliser des variétés résistantes, pulvériser du purin d’ortie ou de prêle.",
+        lutte_chimique: "Pulvérisation préventive de fongicides à base de cuivre (bouillie bordelaise)."
+      },
+      {
+        nom: "Oïdium du concombre",
+        nom_scientifique: "Podosphaera xanthii",
+        description: "Apparition d’un feutrage blanc sur les feuilles, ralentissant la croissance.",
+        cultures_attaquées: "Concombre, melon, courgette",
+        lutte_biologique: "Pulvérisation de soufre, décoction d’ail ou de lait dilué.",
+        lutte_chimique: "Traitements fongicides soufrés ou spécifiques à l’oïdium."
+      },
+      {
+        nom: "Alternariose de la carotte",
+        nom_scientifique: "Alternaria dauci",
+        description: "Taches noires sur les feuilles, affaiblissement de la plante.",
+        cultures_attaquées: "Carotte, céleri",
+        lutte_biologique: "Rotation culturale, éviter l’humidité excessive.",
+        lutte_chimique: "Fongicides à base de mancozèbe ou chlorothalonil."
+      },
+      {
+        nom: "Fusariose de la laitue",
+        nom_scientifique: "Fusarium oxysporum f.sp. lactucae",
+        description: "Flétrissement des feuilles, brunissement des racines.",
+        cultures_attaquées: "Laitue, chicorée",
+        lutte_biologique: "Solarisation du sol, compost bien mûr.",
+        lutte_chimique: "Fongicides systémiques (benomyl, thiophanate-méthyl)."
+      },
+      {
+        nom: "Botrytis ou pourriture grise",
+        nom_scientifique: "Botrytis cinerea",
+        description: "Moisissure grise sur feuilles, tiges et fruits.",
+        cultures_attaquées: "Fraises, tomates, laitue",
+        lutte_biologique: "Aération, décoction de prêle, éviter les blessures de plantes.",
+        lutte_chimique: "Fongicides comme le fenhexamid ou l’iprodione."
+      },
+      {
+        nom: "Cladosporiose de la tomate",
+        nom_scientifique: "Cladosporium fulvum",
+        description: "Taches jaunes et brunâtres au revers des feuilles.",
+        cultures_attaquées: "Tomate uniquement",
+        lutte_biologique: "Rotation, variétés résistantes, décoction de prêle.",
+        lutte_chimique: "Traitement au cuivre ou strobilurines."
+      },
+      {
+        nom: "Anthracnose du poivron",
+        nom_scientifique: "Colletotrichum spp.",
+        description: "Taches noires enfoncées sur fruits et feuilles.",
+        cultures_attaquées: "Poivron, piment, aubergine",
+        lutte_biologique: "Éviter l’humidité, rotation culturale.",
+        lutte_chimique: "Fongicides comme le chlorothalonil ou azoxystrobine."
+      },
+      {
+        nom: "Fonte des semis",
+        nom_scientifique: "Pythium spp., Rhizoctonia solani",
+        description: "Pourrissement des plantules juste après la levée.",
+        cultures_attaquées: "Toutes les cultures en semis",
+        lutte_biologique: "Substrat sain, arrosage modéré, purin de prêle.",
+        lutte_chimique: "Fongicides comme le metalaxyl ou captane."
+      },
+      {
+        nom: "Rouille de l’ail",
+        nom_scientifique: "Puccinia allii",
+        description: "Petites pustules orangées sur les feuilles.",
+        cultures_attaquées: "Ail, oignon, poireau",
+        lutte_biologique: "Rotation culturale, décoction d’ail ou ortie.",
+        lutte_chimique: "Fongicides soufrés ou à base de cuivre."
+      },
+      {
+        nom: "Bactériose de la laitue",
+        nom_scientifique: "Xanthomonas campestris pv. vitians",
+        description: "Taches huileuses sur feuilles de laitue.",
+        cultures_attaquées: "Laitue",
+        lutte_biologique: "Arrosage au pied, éviter éclaboussures.",
+        lutte_chimique: "Traitement cuivreux préventif."
+      },
+      {
+        nom: "Mildiou de l'oignon",
+        nom_scientifique: "Peronospora destructor",
+        description: "Taches jaunes sur les feuilles, suivies de pourriture.",
+        cultures_attaquées: "Oignon, échalote",
+        lutte_biologique: "Bonne aération, rotation des cultures.",
+        lutte_chimique: "Fongicides à base de cuivre."
+      },
+      {
+        nom: "Tavelure de la pomme de terre",
+        nom_scientifique: "Streptomyces scabies",
+        description: "Lésions liégeuses sur la peau des tubercules.",
+        cultures_attaquées: "Pomme de terre",
+        lutte_biologique: "Utilisation de variétés tolérantes.",
+        lutte_chimique: "Pas de traitement chimique spécifique, mais désinfection du sol possible."
+      },
+      {
+        nom: "Chancre bactérien de la tomate",
+        nom_scientifique: "Clavibacter michiganensis",
+        description: "Flétrissement, taches nécrotiques, fentes sur tiges.",
+        cultures_attaquées: "Tomate",
+        lutte_biologique: "Éviter les outils contaminés, hygiène culturale.",
+        lutte_chimique: "Traitements préventifs à base de cuivre."
+      },
+       {
+  nom: "Flétrissement bactérien",
+  nom_scientifique: "Ralstonia solanacearum",
+  description: "Flétrissement soudain des feuilles malgré un arrosage suffisant. Les tiges brunissent à l’intérieur.",
+  cultures_attaquées: "Tomate, aubergine, piment, pomme de terre",
+  lutte_biologique: "Rotation des cultures, solarisation du sol, élimination des plantes malades.",
+  lutte_chimique: "Aucun traitement curatif efficace ; désinfection du sol préventive avec produits homologués."
+      },
+      {
+        nom: "Pourriture molle bactérienne",
+        nom_scientifique: "Erwinia carotovora",
+        description: "Tissus mous et humides dégageant une mauvaise odeur.",
+        cultures_attaquées: "Carotte, navet, pomme de terre",
+        lutte_biologique: "Stockage au sec, ventilation, rotation.",
+        lutte_chimique: "Pas de traitement curatif efficace."
+      },
+      {
+  nom: "Anthracnose",
+  nom_scientifique: "Colletotrichum spp.",
+  description: "Taches noires enfoncées sur les fruits, les tiges et parfois les feuilles, provoquant leur pourriture.",
+  cultures_attaquées: "Haricot, concombre, tomate, melon",
+  lutte_biologique: "Rotation des cultures, élimination des résidus, utilisation de variétés résistantes.",
+  lutte_chimique: "Traitements préventifs avec des fongicides à base de cuivre ou chlorothalonil."
+      },
+      {
+  nom: "Cercosporiose",
+  nom_scientifique: "Cercospora beticola",
+  description: "Taches circulaires brun-gris sur les feuilles avec un halo clair.",
+  cultures_attaquées: "Betterave, épinard, poivron",
+  lutte_biologique: "Rotation des cultures, élimination des résidus de culture.",
+  lutte_chimique: "Fongicides à base de cuivre ou de strobilurines en traitement foliaire."
+},
+{
+  nom: "Mildiou du pois",
+  nom_scientifique: "Peronospora viciae",
+  description: "Taches jaunâtres sur les feuilles, avec un feutrage grisâtre au revers.",
+  cultures_attaquées: "Pois, fève",
+  lutte_biologique: "Espacement des plants, éviter les arrosages tardifs.",
+  lutte_chimique: "Pulvérisations préventives avec des fongicides spécifiques."
+},
+{
+  nom: "Brûlure alternarienne de la carotte",
+  nom_scientifique: "Alternaria dauci",
+  description: "Feuilles jaunissantes, taches sombres sur les bords, réduction de la photosynthèse.",
+  cultures_attaquées: "Carotte, céleri",
+  lutte_biologique: "Utiliser des semences saines, rotation culturale.",
+  lutte_chimique: "Fongicides à base de mancozèbe ou chlorothalonil en prévention."
+      },
+      {
+        nom: "Verticilliose de l’aubergine",
+        nom_scientifique: "Verticillium dahliae",
+        description: "Flétrissement des feuilles sans jaunissement marqué.",
+        cultures_attaquées: "Aubergine, tomate, pomme de terre",
+        lutte_biologique: "Rotation culturale longue, compost bien mûr.",
+        lutte_chimique: "Fongicides systémiques (limités en efficacité)."
+      }
+    ];
+
+    const maladieList = document.getElementById("maladie-list");
+    const searchInput = document.getElementById("searchInput");
+    const triSelect = document.getElementById("triSelect");
+
+    function afficherMaladies(data) {
+      maladieList.innerHTML = "";
+      data.forEach(m => {
+        maladieList.innerHTML += `
+          <div class="maladie">
+            <h2>${m.nom}</h2>
+            <p><strong>Nom scientifique :</strong> <em>${m.nom_scientifique}</em></p>
+            <p><span class="section-title">Cultures attaquées :</span> ${m.cultures_attaquées}</p>
+            <p><span class="section-title">Description :</span> ${m.description}</p>
+            <p><span class="section-title">Lutte biologique :</span> ${m.lutte_biologique}</p>
+            <p><span class="section-title">Lutte chimique :</span> ${m.lutte_chimique}</p>
+          </div>
+        `;
+      });
+    }
+
+    searchInput.addEventListener("input", () => {
+      const terme = searchInput.value.toLowerCase();
+      const resultats = maladies.filter(m =>
+        m.nom.toLowerCase().includes(terme) ||
+        m.nom_scientifique.toLowerCase().includes(terme)
+      );
+      afficherMaladies(resultats);
+    });
+
+    triSelect.addEventListener("change", () => {
+      let trié = [...maladies];
+      if (triSelect.value === "asc") {
+        trié.sort((a, b) => a.nom.localeCompare(b.nom));
+      } else if (triSelect.value === "desc") {
+        trié.sort((a, b) => b.nom.localeCompare(a.nom));
+      }
+      afficherMaladies(trié);
+    });
+
+    afficherMaladies(maladies);
+  </script>
+</body>
+</html>
