@@ -1,0 +1,52 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background: #6cf173;
+}
+
+header {
+  background-color: #039903; /* Vert pur */
+  color: white;
+  text-align: center;
+  padding: 1rem;
+}
+
+main {
+  padding: 1rem;
+}
+
+#searchInput {
+  width: 100%;
+  padding: 5px;
+  margin-bottom: 10px;
+  font-size: 20px;
+  border-radius: 5px;
+  border: 2px solid #01050a;
+}
+
+.plant-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(650px, 1fr));
+  gap: 1rem;
+}
+
+.plant-card {
+  background-color: #b8eecc;
+  border: 15px dotted hsla(15, 5%, 16%, 0.11); /* Jaune, pointillé, épais */
+  padding: 1rem;
+  border-radius: 20px; /* Bords arrondis */
+  box-shadow: 0 0 50px rgba(0,0,0,0.1);
+}
+
+.plant-card h2 {
+  margin-top: 0;
+  color: #039603; /* Vert pur pour les titres de plante */
+}
+
+footer {
+  background-color: #07a807;
+  color: white;
+  text-align: center;
+  padding: 1rem;
+}
